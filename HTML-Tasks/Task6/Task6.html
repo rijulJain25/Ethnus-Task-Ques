@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form action="#" method="POST">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" required><br><br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" required></textarea><br><br>
+
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" required><br><br>
+
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+            <option value="India" selected>India</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+            <option value="Canada">Canada</option>
+        </select><br><br>
+
+        <label>Languages Known:</label><br>
+        <input type="checkbox" id="english" name="languages[]" value="English">
+        <label for="english">English</label><br>
+        <input type="checkbox" id="spanish" name="languages[]" value="Spanish">
+        <label for="spanish">Spanish</label><br>
+        <input type="checkbox" id="french" name="languages[]" value="French">
+        <label for="french">French</label><br>
+        <input type="checkbox" id="german" name="languages[]" value="German">
+        <label for="german">German</label><br><br>
+
+        <input type="checkbox" id="informationTrue" name="informationTrue" value="true" checked>
+        <label for="informationTrue">All information is true</label><br><br>
+
+        <button type="submit">REGISTER</button>
+    </form>
+</body>
+</html>
