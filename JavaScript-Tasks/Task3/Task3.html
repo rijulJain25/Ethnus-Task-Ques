@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+    }
+    
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .card {
+      background-color: white;
+      width: 400px;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      font-weight: bold;
+    }
+    
+    .form-group input[type="text"],
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+    }
+    
+    .form-group input[type="text"]:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #dbdbdb;
+    }
+    
+    .form-group input[type="submit"] {
+      background-color: #3897f0;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .form-group input[type="submit"]:hover {
+      background-color: #1877c5;
+    }
+    
+    .error-message {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+    
+    .error-input {
+      border: 1px solid red !important;
+    }
+    
+    .error-input:focus {
+      outline: none;
+      border-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name">
+          <div class="error-message" id="nameError"></div>
+        </div>
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <input type="text" id="address" name="address" placeholder="Enter your address">
+          <div class="error-message" id="addressError"></div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="email" placeholder="Enter your email">
+          <div class="error-message" id="emailError"></div>
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+          <div class="error-message" id="messageError"></div>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      validateForm();
+    });
+
+    function validateForm() {
+      const name = document.getElementById('name');
+      const address = document.getElementById('address');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
+
+      const nameError = document.getElementById('nameError');
+      const addressError = document.getElementById('addressError');
+      const emailError = document.getElementById('emailError');
+      const messageError = document.getElementById('messageError');
+
+      // Reset error messages and border colors
+      nameError.textContent = '';
+      addressError.textContent = '';
+      emailError.textContent = '';
+      messageError.textContent = '';
+
+      name.classList.remove('error-input');
+      address.classList.remove('error-input');
+      email.classList.remove('error-input');
+      message.classList.remove('error-input');
+
+      let isValid = true;
+
+      if (name.value.trim() === '') {
+        nameError.textContent = 'Name is required';
+        name.classList.add('error-input');
+        name.focus();
+        isValid = false;
+      }
+
+      if (address.value.trim() === '') {
+        addressError.textContent = 'Address is required';
+        address.classList.add('error-input');
+        if (isValid) {
+          address.focus();
+        }
+        isValid = false;
+      }
+
+      if (email.value.trim() === '') {
+        emailError.textContent = 'Email is required';
+        email.classList.add('error-input');
+        if (isValid) {
+          email.focus();
+        }
+        isValid = false;
+      } else if (!validateEmail(email.value.trim())) {
+        emailError.textContent = 'Invalid email format';
+        email.classList.add('error-input');
+        if (isValid) {
+          email.focus();
+        }
+        isValid = false;
+      }
+
+      if (message.value.trim() === '') {
+        messageError.textContent = 'Message is required';
+        message.classList.add('error-input');
+        if (isValid) {
+          message.focus();
+        }
+        isValid = false;
+      }
+
+      if (isValid) {
+        // If the form is valid, you can proceed with submitting or further processing the data
+        alert('Form submitted successfully!');
+        form.reset();
+      }
+    }
+
+    function validateEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+  </script>
+</body>
+</html>

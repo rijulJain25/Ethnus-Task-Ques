@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // Concat
+        let array1 = [10, 20, 30];
+        let array2 = [40, 50, 60];
+        console.log("concat method: ")
+        let concatenatedArray = array1.concat(array2);
+        console.log(concatenatedArray);
+
+        // copyWithin
+        let array3 = [10, 20, 30];
+        console.log("copyWithin method ")
+        array3.copyWithin(array3.length, 0);
+        console.log(array3);
+
+        // Map
+        let array4 = [10,20,30,40,50,60];
+        console.log("map method")
+        array4.map((item)=>{
+            console.log(item)
+        })
+
+        // every method
+        const numbers1 = [2, 4, 6, 8, 10];
+        const allOdd = numbers1.every((num) => num % 2 === 1);
+        console.log("every method")
+        console.log(allOdd);
+
+        // some method
+        const numbers2 = [1, 2, 3, 4, 5];
+        const hasEvenNumber = numbers2.some((num) => num % 2 === 0);
+        console.log("some method")
+        console.log(hasEvenNumber);
+
+        // filter method
+        const numbers3 = [11, 20, 30, 45, 57, 20, 49, 30];
+        const divisibleby10 = numbers3.filter((num) => num % 10 === 0);
+        console.log("filter method")
+        console.log(divisibleby10);
+
+        // find method
+        const numbers4 = [10, 20, 30, 40, 50];
+        const target = numbers4.find((num) => num % 20 === 0);
+        console.log("find method")
+        console.log(target);
+
+        // findIndex method
+        const evenIndex = numbers4.findIndex((num) => num % 20 === 0);
+        console.log("findIndex method")
+        console.log(evenIndex);
+
+        // indexOf method
+        const numbers = [1, 2, 3, 4, 5];
+        const index = numbers.indexOf(2);
+        console.log("indexOf method")
+        console.log(index);
+
+        // lastIndexOf method
+        console.log("lastIndexOf method");
+        const lastIndex = numbers.lastIndexOf(3);
+        console.log(lastIndex);
+
+        let array = [10, 20, 30, 10, 20, 30];
+        
+        // push method
+        console.log("push method");
+        array.push(100);
+        console.log(array); 
+
+        // pop method
+        console.log("pop method");
+        let poppedElement = array.pop();
+        console.log(poppedElement); 
+        console.log(array);
+
+        // shift method
+        console.log("shift method");
+        let shiftedElement = array.shift();
+        <!-- console.log(shiftedElement); -->
+        console.log(array);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Basic Calculator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: #222831;
+        color: #00adb5;
+        font-size: 24px;
+      }
+
+      .container {
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .btn {
+        margin: 10px;
+        padding: 15px;
+        border: none;
+        border-radius: 15px;
+        background-color: #00adb5;
+        color: #222831;
+        font-size: 22px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <form>
+        <table>
+          <tr>
+            <td>Number 1</td>
+            <td><input type="number" id="t1" /></td>
+          </tr>
+          <tr>
+            <td>Number 2</td>
+            <td><input type="number" id="t2" /></td>
+          </tr>
+          <tr>
+            <td>Result</td>
+            <td><input type="text" id="t3" /></td>
+          </tr>
+          <tr>
+            <td style="padding-right: 10px">Select Operation</td>
+            <td>
+              <select id="s1">
+                <option value="">Operator</option>
+                <option value="+">Addition</option>
+                <option value="-">Subtraction</option>
+                <option value="*">Product</option>
+                <option value="/">Quotient</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input
+                class="btn"
+                type="button"
+                value="Calculate"
+                onClick="cal()"
+              />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <script>
+      function cal() {
+        var n1, n2, res, opr;
+        n1 = parseInt(document.getElementById("t1").value);
+        n2 = parseInt(document.getElementById("t2").value);
+        opr = document.getElementById("s1").value;
+        switch (opr) {
+          case "+":
+            res = n1 + n2;
+            document.getElementById("t3").value = res;
+            break;
+          case "-":
+            res = n1 - n2;
+            document.getElementById("t3").value = res;
+            break;
+          case "*":
+            res = n1 * n2;
+            document.getElementById("t3").value = res;
+            break;
+          case "/":
+            res = n1 / n2;
+            document.getElementById("t3").value = res;
+            break;
+          default:
+            document.getElementById("t3").value = "Invalid Operator";
+        }
+      }
+    </script>
+  </body>
+</html>

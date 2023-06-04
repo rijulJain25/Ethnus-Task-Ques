@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+  transition: all ease 300ms;
+}
+
+.outer {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #6e2828;
+}
+
+.inner {
+  padding: 2rem 5rem;
+
+  background: #590404;
+  color: white;
+}
+
+.inner form {
+  width: 100%;
+}
+
+td {
+  vertical-align: middle;
+  padding: 0.3rem;
+  width: 9rem;
+}
+
+input,
+select,
+textarea {
+  padding: 0.3rem;
+}
+
+
+button {
+  padding: 0.4rem;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button:hover,
+input:hover,
+select:hover,
+textarea:hover{
+  scale: 1.05;
+}
+
+#result{
+  width: 100%;
+}
+
+.text-success{
+  margin-top: 0.3rem;
+  color: #3cf100;
+  text-align: center;
+}
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="inner">
+        <table>
+          <form id="form">
+            <tr>
+              <td>
+                <label for="name">Name</label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Your Name"
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="email">Email</label>
+              </td>
+              <td>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Your Email"
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="password">Password</label>
+              </td>
+              <td>
+                <input type="password" name="password" id="password" />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="phn">Phone Number</label>
+              </td>
+              <td>
+                <input type="phn" name="phn" id="phn" />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="gender">Gender</label>
+              </td>
+              <td>
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="male" value="male" />
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="female" value="female" />
+                <label for="other">Other</label>
+                <input type="radio" name="gender" id="other" value="other" />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="lang">Language</label>
+              </td>
+              <td>
+                <select name="lang" id="lang">
+                  <option value="eng">English</option>
+                  <option value="ben">Bengali</option>
+                  <option value="hin">Hindi</option>
+                  <option value="jap">Japanese</option>
+                  <option value="ger">German</option>
+                  <option value="fre">French</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="zip">Zip Code</label>
+              </td>
+              <td>
+                <input type="text" name="zip" id="zip" />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="about">About</label>
+              </td>
+              <td>
+                <textarea
+                  name="about"
+                  id="about"
+                  cols="25"
+                  rows="3"
+                  placeholder="Write about yourself"
+                ></textarea>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                <button id="submit">Register</button>
+              </td>
+            </tr>
+          </form>
+        </table>
+        <div id="result"></div>
+      </div>
+    </div>
+    <script>
+      const validate = (d) => {
+    console.log(d)
+    for(let i in d){
+        if(d[i]==null || d[i]===''){
+            alert(`${i} is required`)
+            return false
+        }
+    }
+
+    let regex=/^[a-zA-Z]*$/
+    if(!regex.test(d['name'])){
+        alert("Name should have only letters")
+        return false
+    }
+    
+    regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+    if(!regex.test(d['password'])){
+        alert("Password should have atleast 8 characters, with atleast 1 uppercase, lowercase, digit and special character")
+        return false
+    }
+
+    regex=/^[0-9]{10}$/
+    if(!regex.test(d['phone'])){
+        alert("Incorrect phone number")
+        return false
+    }
+
+    regex=/\d{6}/
+    if(!regex.test(d['zip'])){
+        alert("Incorrect zip code")
+        return false
+    }
+
+    return true
+}
+
+const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const name=document.getElementById('name').value
+    const email=document.getElementById('email').value
+    const password=document.getElementById('password').value
+    const phn=document.getElementById('phn').value
+    let t=document.getElementsByName('gender')
+    let gender=null
+    for(let i=0;i<t.length;i++){
+        if(t[i].checked){
+            gender=t[i].value
+            break;
+        }
+    }
+    const lang=document.getElementById('lang').value
+    const zip=document.getElementById('zip').value
+    const about=document.getElementById('about').value
+    const data={name,email,password,"phone":phn,gender,"language":lang,zip,about}
+
+    const resultArea=document.getElementById('result')
+
+    if(validate(data)){
+        const el=document.createElement("h3")
+        el.textContent="Registered Successfully"
+        el.classList.add('text-success')
+        resultArea.replaceChildren(el)
+    }
+}
+
+(() => {
+    const f=document.getElementById('form')
+    f.addEventListener('submit', handleSubmit)
+})()
+    </script>
+  </body>
+</html>
