@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Form Example</title>
+    <style>
+        .error-message {
+            color: red;
+        }
+
+        .has-error .form-control {
+            border-color: red;
+        }
+
+        .has-error .input-group-append {
+            color: red;
+        }
+
+        .btn-primary.clicked {
+            background-color: red;
+            border-color: red;
+        }
+    </style>
+</head>
+
+<body style="height: 100vh !important;" class="d-flex justify-contents-center align-items-center">
+    <div class="container mt-4 w-25">
+        <form>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="firstname"><span class="font-weight-bold">Name</span></label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="firstname" placeholder="Firstname">
+                            <div class="input-group-append error-icon d-none">
+                                <span class="input-group-text">
+                                    <i class="fas fa-exclamation-circle text-danger"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="error-message d-none">Please enter your name</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="email"><span class="font-weight-bold">Email</span></label>
+                        <div class="input-group">
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                            <div class="input-group-append error-icon d-none">
+                                <span class="input-group-text">
+                                    <i class="fas fa-exclamation-circle text-danger"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="error-message d-none">Please enter a valid email</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="phone"><span class="font-weight-bold">Password</span></label>
+                       
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                            <div class="input-group-append error-icon d-none">
+                                <span class="input-group-text">
+                                    <i class="fas fa-exclamation-circle text-danger"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="error-message d-none">Please enter a password</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="state"><span class="font-weight-bold">Hobbies</span></label>
+                        <div class="input-group">
+                            <select class="form-control" id="state">
+                                <option value="" selected disabled>Choose...</option>
+                                <option value="state1">Hobby 1</option>
+                                <option value="state2">Hobby 2</option>
+                                <option value="state3">Hobby 3</option>
+                            </select>
+                            <div class="input-group-append error-icon d-none">
+                                <span class="input-group-text">
+                                    <i class="fas fa-exclamation-circle text-danger"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="error-message d-none">Please select a hobby</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const inputs = document.querySelectorAll('.form-control');
+
+            inputs.forEach(function (input) {
+                const errorIcon = input.nextElementSibling;
+                const errorMessage = input.parentElement.nextElementSibling;
+
+                if (input.value.trim() === '') {
+                    input.parentElement.classList.add('has-error');
+                    errorIcon.classList.remove('d-none');
+                    errorMessage.classList.remove('d-none');
+                } else {
+                    input.parentElement.classList.remove('has-error');
+                    errorIcon.classList.add('d-none');
+                    errorMessage.classList.add('d-none');
+                }
+            });
+
+            const submitBtn = document.querySelector('button[type="submit"]');
+            submitBtn.classList.add('clicked');
+        });
+    </script>
+</body>
+
+</html>
