@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task - 5</title>
+</head>
+<body>
+    <p>Enter number</p><input type="text" id="num">
+    <button id="rev">Reverse</button>
+    <p id="res"></p>
+    <script>
+        document.getElementById("rev").onclick = function(){
+            var x = document.getElementById("num").value;
+            let ans = "";
+            for(let i = x.length-1;i>=0;i--){
+                ans+=x[i];
+            }
+            document.getElementById("res").innerHTML=ans;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(lightyellow, deeppink);
+    }
+
+    .form-container {
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      color: blue;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="number"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    .language-options label {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #ff6f00;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 30px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <form>
+      <h1>Registration Form</h1>
+
+      <label for="first-name">First Name:</label>
+      <input type="text" id="first-name" name="first-name" required>
+
+      <label for="last-name">Last Name:</label>
+      <input type="text" id="last-name" name="last-name" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="reenter-password">Re-enter Password:</label>
+      <input type="password" id="reenter-password" name="reenter-password" required>
+
+      <label>Gender:</label>
+      <input type="radio" id="male" name="gender" value="male" required>
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="female" required>
+      <label for="female">Female</label>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" rows="4" required></textarea>
+
+      <label for="state">State:</label>
+      <input type="text" id="state" name="state" required>
+
+      <label for="country">Country:</label>
+      <select id="country" name="country" required>
+        <option value="">Select a country</option>
+        <option value="usa">USA</option>
+        <option value="canada">Canada</option>
+        <option value="uk">UK</option>
+        <!-- Add more countries here -->
+      </select>
+
+      <div class="language-options">
+        <label>Language Preference:</label>
+        <label>
+          <input type="checkbox" name="language" value="english">English
+        </label>
+        <label>
+          <input type="checkbox" name="language" value="spanish">Spanish
+        </label>
+        <label>
+          <input type="checkbox" name="language" value="french">French
+        </label>
+        <label>
+          <input type="checkbox" name="language" value="german">German
+        </label>
+      </div>
+
+      <label>
+        <input type="checkbox" id="information-true" name="information-true" checked disabled>
+        All of the information provided is true to my knowledge
+      </label>
+
+      <input type="submit" value="Register">
+    </form>
+  </div>
+</body>
+</html>
