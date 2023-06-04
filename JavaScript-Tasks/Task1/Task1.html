@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date and Time</title>
+  <style>
+    .button {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Date and Time</h1>
+
+  <div>
+    <button class="button" id="dateButton">Get Date</button>
+  </div>
+
+  <div>
+    <button class="button" id="timeButton">Get Time</button>
+  </div>
+
+  <p id="result"></p>
+
+  <script>
+    // Function to get the current date
+    function getDate() {
+      var currentDate = new Date();
+      var dateString = currentDate.toDateString();
+      document.getElementById("result").innerText = "Current date is: " + dateString;
+    }
+
+    // Function to get the current time
+    function getTime() {
+      var currentTime = new Date();
+      var timeString = currentTime.toTimeString();
+      document.getElementById("result").innerText = "Current time is: " + timeString;
+    }
+
+    // Add event listeners to the buttons
+    document.getElementById("dateButton").addEventListener("click", getDate);
+    document.getElementById("timeButton").addEventListener("click", getTime);
+  </script>
+</body>
+</html>
