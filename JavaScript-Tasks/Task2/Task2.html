@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Three Headings Side by Side</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .section {
+      flex: 1;
+      padding: 20px;
+      margin: 0 30px;
+    }
+
+    .button {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="section">
+      <h1>Page1</h1>
+      <p><a href="page2.html">Go to Page 2</a></p>
+      <button class="button">Next</button>
+    </div>
+    <div class="section">
+      <h1>Page2</h1>
+      <p><a href="page3.html">Go to Page 3</a></p>
+      <button class="button">Next</button>
+<!--       <button class="button">Previous</button> -->
+    </div>
+    <div class="section">
+      <h1>Page3</h1>
+      <p><a href="page1.html">Go to Page 1</a></p>
+      <button class="button">Previous</button>
+    </div>
+  </div>
+</body>
+</html>
