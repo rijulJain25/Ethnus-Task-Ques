@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    table {
+      margin: auto;
+      width: 50%;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 5px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 80px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <table>
+      <tr>
+        <th colspan="2">Registration Form</th>
+      </tr>
+      <tr>
+        <td>First Name:</td>
+        <td><input type="text" name="firstName"></td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td><input type="text" name="lastName"></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input type="email" name="email"></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input type="password" name="password"></td>
+      </tr>
+      <tr>
+        <td>Re-enter Password:</td>
+        <td><input type="password" name="rePassword"></td>
+      </tr>
+      <tr>
+        <td>Gender:</td>
+        <td>
+          <input type="radio" name="gender" value="male"> Male
+          <input type="radio" name="gender" value="female"> Female
+        </td>
+      </tr>
+      <tr>
+        <td>Age:</td>
+        <td><input type="number" name="age"></td>
+      </tr>
+      <tr>
+        <td>Phone Number:</td>
+        <td><input type="tel" name="phone"></td>
+      </tr>
+      <tr>
+        <td>Address:</td>
+        <td><textarea name="address"></textarea></td>
+      </tr>
+      <tr>
+        <td>State:</td>
+        <td><input type="text" name="state"></td>
+      </tr>
+      <tr>
+        <td>Country:</td>
+        <td>
+          <select name="country">
+            <option value="" disabled selected>Select a country</option>
+            <option value="usa">USA</option>
+            <option value="uk">UK</option>
+            <option value="canada">Canada</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Languages known:</td>
+        <td>
+          <input type="checkbox" name="language" value="english"> English<br>
+          <input type="checkbox" name="language" value="spanish"> Spanish<br>
+          <input type="checkbox" name="language" value="french"> French<br>
+          <input type="checkbox" name="language" value="german"> German<br>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="checkbox" name="declaration" value="true" checked> Hereby I declare all the given details as true
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: center;">
+          <input type="submit" value="Submit">
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>
